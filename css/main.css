@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+.recipe {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 2px solid #0ff4c6;
+  background-color: #000009;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  height: 500px;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.recipe #refresh {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.recipe .recipeThumb {
+  background-image: url("../Egyptian_food_Koshary.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.recipe .instructions {
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  width: 30%;
+  box-shadow: 10px 0 10px 1000px rgba(0, 0, 0, 0.7);
+  background-color: #fff;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px 0;
+  transition: 300ms ease;
+}
+.recipe .instructions ol {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+.recipe .instructions ol li {
+  font-size: 1rem;
+}
+.recipe .instructions .header {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+}
+.recipe .instructions .header button {
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+.recipe .instructions h2 {
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  gap: 0 10px;
+}
+.recipe .info {
+  padding: 15px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  gap: 20px;
+}
+.recipe .info .name {
+  width: 75%;
+  color: #defff2;
+}
+.recipe .info h3 {
+  color: #0ff4c6;
+}
+.recipe .info .tags {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+.recipe .info .inst {
+  text-align: justify;
+  color: #555;
+  max-height: 250px;
+  overflow: hidden;
+}
+.recipe .info .btn_style {
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  gap: 5px;
+  background-color: #464f51;
+  color: #defff2;
+  padding: 5px 15px;
+}
+.recipe .info button.btn_style {
+  cursor: pointer;
+}
+.recipe .info .ingridents {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #0ff4c6;
+  border-radius: 5px;
+  overflow: auto;
+}
+.recipe .info .ingridents .row:not(:last-child) {
+  border-bottom: 1px solid #0ff4c6;
+}
+.recipe .info .ingridents .row {
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.recipe .info .ingridents .row p {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #defff2;
+}
+.recipe .info .ingridents .row p.hd {
+  font-weight: bold;
+}
+.recipe .info .ingridents .row p:first-child {
+  border-right: 1px solid #0ff4c6;
+}
+.recipe .info .ingridents .row:hover {
+  background-color: rgba(222, 255, 242, 0.5);
+}
+.recipe .info .ingridents .row:hover p {
+  color: #000 !important;
+}
+.recipe .info .ingridents .row::-webkit-scrollbar {
+  width: 10px;
+}
+@media (max-width: 920px) {
+  .recipe {
+    min-height: 100vh;
+    width: 100%;
+    overflow: auto;
+    border-radius: 0;
+    border: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 500px 1fr;
+  }
+  .recipe .instructions {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .recipe .recipeThumb {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  .recipe .info {
+    padding: 15px;
+    height: 100%;
+  }
+  .recipe .info .tags {
+    flex-direction: column;
+    gap: 10px 0;
+    align-items: flex-start;
+  }
+  .recipe .info .tags .btn_style {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  .recipe .info #refresh {
+    font-size: 2rem;
+  }
+  .recipe .info .ingridents {
+    overflow: visible;
+  }
+  .recipe .info .ingridents .row {
+    height: 100px;
+  }
+  .recipe .info .ingridents .row p {
+    text-wrap: wrap;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  display: flex;
+  background-color: #464f51;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}/*# sourceMappingURL=main.css.map */

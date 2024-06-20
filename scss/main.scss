@@ -1,0 +1,23 @@
+// @import 'normalize';
+@import 'card';
+
+// main font
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+// some resets
+body {
+	font-family: 'IBM Plex Sans', sans-serif;
+	display: flex;
+	background-color: #464f51;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+.hide {
+	visibility: hidden;
+	opacity: 0;
+}

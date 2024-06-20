@@ -1,0 +1,208 @@
+@mixin bg($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.recipe {
+    position: relative;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 2px solid #0ff4c6;
+	background-color: #000009;
+	box-shadow: 0 10px 10px rgba(#000, 0.5);
+	display: grid;
+	height: 500px;
+	grid-template-columns: 0.8fr 1fr;
+	gap: 20px;
+	overflow: hidden;
+	position: relative;
+	#refresh {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+	}
+	.recipeThumb {
+		@include bg('../Egyptian_food_Koshary.jpg');
+	}
+    .instructions{
+        position: absolute;
+        height: 100%;
+        overflow: auto;
+        width: 30%;
+        box-shadow: 10px 0 10px 1000px rgba(#000,0.7);
+        background-color: #fff;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 30px 0;
+        transition: 300ms ease;
+        ol{
+            padding-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px 0;
+            li{
+                font-size: 1rem;
+            }
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            justify-content: space-between;
+            button{
+                outline: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #fff;
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50px;
+            }
+            border-bottom: 1px solid #ccc;
+            padding: 20px;
+        }
+        h2{
+            display: flex;
+            font-size: 1.5rem;
+            align-items: center;
+            gap: 0 10px;
+        }
+    }
+	.info {
+		padding: 15px;
+		padding-left: 0;
+		display: flex;
+		flex-direction: column;
+		height: inherit;
+		gap: 20px;
+		.name {
+			width: 75%;
+			color: #defff2;
+		}
+		h3 {
+			color: #0ff4c6;
+		}
+		.tags {
+			display: flex;
+			align-items: center;
+			gap: 0 10px;
+		}
+		.inst {
+			text-align: justify;
+			color: #555;
+			max-height: 250px;
+			overflow: hidden;
+		}
+		.btn_style {
+			border: none;
+			outline: none;
+			display: flex;
+			align-items: center;
+			font-family: inherit;
+			font-size: 1rem;
+			border-radius: 5px;
+			text-decoration: none;
+			gap: 5px;
+			background-color: #464f51;
+			color: #defff2;
+			padding: 5px 15px;
+		}
+		button.btn_style {
+			cursor: pointer;
+		}
+		.ingridents {
+			display: flex;
+			flex-direction: column;
+			border: 1px solid #0ff4c6;
+			border-radius: 5px;
+			overflow: auto;
+			.row:not(:last-child) {
+				border-bottom: 1px solid #0ff4c6;
+			}
+			.row {
+				height: 50px;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				p {
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: #defff2;
+				}
+				p.hd {
+					font-weight: bold;
+				}
+				p:first-child {
+					// background-color: #333;
+					border-right: 1px solid #0ff4c6;
+				}
+				&:hover {
+					background-color: rgba(222, 255, 242, 0.5);
+					p {
+						color: #000 !important;
+					}
+				}
+				&::-webkit-scrollbar {
+					width: 10px;
+				}
+			}
+		}
+	}
+    @media (max-width: 920px) {
+        min-height: 100vh;
+        width: 100%;
+        overflow: auto;
+        border-radius: 0;
+        border:none;
+        grid-template-columns: 1fr;
+        grid-template-rows: 500px 1fr;
+        .instructions{
+            z-index: 999;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .recipeThumb{
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .info{
+            padding: 15px;
+            height: 100%;
+            .tags{
+                flex-direction: column;
+                gap: 10px 0;
+                align-items: flex-start;
+                .btn_style{
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                }
+            }
+            #refresh{
+                font-size: 2rem;
+            }
+            .ingridents{
+                overflow: visible;
+                .row{
+                    height: 100px;
+                    p{
+                        text-wrap: wrap;
+                        font-size: 1.2rem;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
