@@ -4,8 +4,9 @@
 	background-position: center;
 	background-size: cover;
 }
+
 .recipe {
-    position: relative;
+	position: relative;
 	width: 80%;
 	margin: 0 auto;
 	border-radius: 10px;
@@ -23,60 +24,76 @@
 		right: 15px;
 		top: 15px;
 	}
+
 	.recipeThumb {
 		@include bg('../Egyptian_food_Koshary.jpg');
+		position: relative;
+		overflow: hidden;
+		.loading {
+			width: 100%;
+			height: 100%;
+			background-color: #ccc;
+			transition: 300ms ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3rem;
+		}
 	}
-    .instructions{
-        position: absolute;
-        height: 100%;
-        overflow: auto;
-        width: 30%;
-        box-shadow: 10px 0 10px 1000px rgba(#000,0.7);
-        background-color: #fff;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 30px 0;
-        transition: 300ms ease;
-        ol{
-            padding-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px 0;
-            li{
-                font-size: 1rem;
-            }
-        }
-        .header{
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            background-color: #fff;
-            justify-content: space-between;
-            button{
-                outline: none;
-                border: none;
-                font-size: 1.5rem;
-                color: #fff;
-                width: 50px;
-                height: 50px;
-                background-color: red;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50px;
-            }
-            border-bottom: 1px solid #ccc;
-            padding: 20px;
-        }
-        h2{
-            display: flex;
-            font-size: 1.5rem;
-            align-items: center;
-            gap: 0 10px;
-        }
-    }
+	.instructions {
+		position: absolute;
+		height: 100%;
+		overflow: auto;
+		width: 45%;
+		box-shadow: 10px 0 10px 1000px rgba(#000, 0.7);
+		background-color: #fff;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 30px 0;
+		transition: 300ms ease;
+		ol {
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			gap: 5px 0;
+			list-style: none;
+			li {
+				padding: 15px;
+				font-size: 1rem;
+			}
+		}
+		.header {
+			display: flex;
+			align-items: center;
+			position: sticky;
+			top: 0;
+			background-color: #fff;
+			justify-content: space-between;
+			box-shadow: 0 10px 10px rgba(#ccc, 0.3);
+			button {
+				outline: none;
+				border: none;
+				font-size: 1.5rem;
+				color: #fff;
+				width: 50px;
+				height: 50px;
+				background-color: red;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50px;
+			}
+			border-bottom: 1px solid #ccc;
+			padding: 20px;
+		}
+		h2 {
+			display: flex;
+			font-size: 1.5rem;
+			align-items: center;
+			gap: 0 10px;
+		}
+	}
 	.info {
 		padding: 15px;
 		padding-left: 0;
@@ -158,51 +175,77 @@
 			}
 		}
 	}
-    @media (max-width: 920px) {
-        min-height: 100vh;
-        width: 100%;
-        overflow: auto;
-        border-radius: 0;
-        border:none;
-        grid-template-columns: 1fr;
-        grid-template-rows: 500px 1fr;
-        .instructions{
-            z-index: 999;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-        .recipeThumb{
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-        }
-        .info{
-            padding: 15px;
-            height: 100%;
-            .tags{
-                flex-direction: column;
-                gap: 10px 0;
-                align-items: flex-start;
-                .btn_style{
-                    font-size: 1.3rem;
-                    font-weight: bold;
-                }
-            }
-            #refresh{
-                font-size: 2rem;
-            }
-            .ingridents{
-                overflow: visible;
-                .row{
-                    height: 100px;
-                    p{
-                        text-wrap: wrap;
-                        font-size: 1.2rem;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-    }
+	@media (max-width: 920px) {
+		min-height: 100vh;
+		width: 100%;
+		overflow: auto;
+		border-radius: 0;
+		border: none;
+		grid-template-columns: 1fr;
+		grid-template-rows: 500px 1fr;
+		#up {
+			position: fixed;
+			bottom: 15px;
+			right: 20px;
+			z-index: 999;
+			width: 50px;
+			height: 50px;
+			background-color: #0ff4c6;
+			color: #000;
+			font-size: 2rem;
+			border: none;
+			outline: none;
+			transition: 300ms ease;
+			opacity: 0.6;
+		}
+		.instructions {
+			z-index: 999;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			ol {
+				padding: 0;
+				list-style: none;
+				gap: 5px 0;
+				li {
+					padding: 15px;
+				}
+			}
+		}
+		.recipeThumb {
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 30px;
+		}
+		.info {
+			.name {
+				width: 100%;
+			}
+			padding: 15px;
+			height: 100%;
+			.tags {
+				flex-direction: column;
+				gap: 10px 0;
+				align-items: flex-start;
+				.btn_style {
+					font-size: 1.3rem;
+					font-weight: bold;
+				}
+			}
+			#refresh {
+				font-size: 2rem;
+			}
+			.ingridents {
+				overflow: visible;
+				.row {
+					height: 100px;
+					p {
+						text-wrap: wrap;
+						font-size: 1.2rem;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
 }
